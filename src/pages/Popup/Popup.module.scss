@@ -1,0 +1,46 @@
+.popup {
+    padding: 18px;
+    padding-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 217px;
+}
+
+.link,
+.rateText {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.link {
+    justify-content: space-between;
+}
+
+.ratingWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.rateText {
+    cursor: pointer;
+    gap: 5px;
+    display: inline-flex;
+    margin-left: auto;
+    opacity: 0.5;
+
+    &.active,
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+}
+
+.starIcon {
+    width: 24px;
+    height: 24px;
+}

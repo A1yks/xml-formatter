@@ -1,0 +1,30 @@
+.themeSwitchOptions {
+    background: transparent;
+}
+
+.themeSwitchOption {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.activeThemeSwitchOption {
+        background: var(--theme-switch-active-option-bg);
+
+        svg {
+            fill: var(--theme-switch-active-option-color);
+        }
+    }
+
+    &.inactiveThemeSwitchOption {
+        svg {
+            fill: var(--theme-switch-inactive-option-color);
+        }
+    }
+}
+
+.themeSwitchIcon {
+    width: 20px;
+    height: 20px;
+}

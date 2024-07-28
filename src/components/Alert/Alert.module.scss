@@ -1,0 +1,24 @@
+.alert {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 12px 40px 12px 16px;
+    border-radius: 12px;
+    position: relative;
+    background: var(--alert-bg);
+    color: var(--error-alert-text-color);
+    z-index: 1000;
+
+    svg {
+        fill: var(--error-alert-text-color);
+    }
+}
+
+.closeBtn {
+    cursor: pointer;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 10px;
+    right: 10px;
+}

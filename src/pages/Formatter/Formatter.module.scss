@@ -1,0 +1,87 @@
+html:global(.dark-theme) {
+    .formatter {
+        background-image: url(../../images/bg-lines-dark.svg);
+    }
+}
+
+.formatter {
+    height: 100vh;
+    background-color: var(--bg-color);
+    background-image: url(../../images/bg-lines-light.svg);
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    padding: 60px 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.title {
+    font-size: 30px;
+    gap: 16px;
+
+    svg {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+.panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.prompt {
+    font-size: 18px;
+}
+
+.switches {
+    display: flex;
+    gap: 16px;
+}
+
+.editorWrapper {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 0;
+    width: 100%;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    min-height: 310px;
+    border-radius: 16px;
+}
+
+.mainSwitchOption {
+    padding: 6px 14px;
+}
+
+.loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.rateMessage {
+    position: absolute;
+    width: auto;
+    bottom: 100px;
+    right: -20px;
+
+    @media screen and (max-width: 1600px) {
+        right: 40px;
+    }
+}

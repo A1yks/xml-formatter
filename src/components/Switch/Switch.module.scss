@@ -1,0 +1,64 @@
+.switch {
+    padding: 8px;
+    border-radius: 16px;
+    background: var(--input-bg);
+    user-select: none;
+    width: fit-content;
+
+    &.loading,
+    &.error {
+        .option {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding-top: 0;
+            padding-bottom: 0;
+            width: 100%;
+        }
+    }
+
+    &.loading {
+        .option {
+            cursor: not-allowed;
+        }
+    }
+
+    &.disabled {
+        cursor: not-allowed;
+
+        .option {
+            pointer-events: none;
+        }
+    }
+
+    &.error {
+        .option {
+            background: #c21549;
+
+            svg {
+                fill: #fff;
+            }
+        }
+    }
+}
+
+.options {
+    display: flex;
+    background: var(--switch-inactive-color);
+    border-radius: 12px;
+    height: 100%;
+}
+
+.option {
+    padding: 6px;
+    font-size: 16px;
+    color: var(--input-color);
+    cursor: pointer;
+
+    &.active {
+        background: linear-gradient(148deg, #41ba55 0%, #00a368 100%);
+        color: #fff;
+        border-radius: 12px;
+    }
+}

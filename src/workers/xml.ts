@@ -1,7 +1,7 @@
 import { ValidationError, XMLValidator } from 'fast-xml-parser';
-import formatXML from 'xml-formatter';
 import hljs from 'highlight.js';
 import xmlConfig from 'highlight.js/lib/languages/xml';
+import vkbeautify from 'vkbeautify';
 
 hljs.registerLanguage('xml', (hljs) => {
     const config = xmlConfig(hljs);
@@ -48,11 +48,20 @@ self.addEventListener('message', (e: MessageEvent<XMLWorkerMessage>) => {
 
     if (e.data.type === 'format') {
         const validationResult = XMLValidator.validate(sourceCode);
+        let invalid = false;
 
         if (validationResult !== true) {
-            self.postMessage({ result: { error: validationResult.err }, type: 'format' });
+            if (validationResult.err.msg === 'Multiple possible root nodes found.') {
+                invalid = false;
+            } else {
+                invalid = true;
+            }
+        }
+
+        if (invalid) {
+            self.postMessage({ result: { error: (validationResult as ValidationError).err }, type: 'format' });
         } else {
-            self.postMessage({ result: { code: formatXML(sourceCode, { collapseContent: true }) }, type: 'format' });
+            self.postMessage({ result: { code: vkbeautify.xml(sourceCode) }, type: 'format' });
         }
     }
 

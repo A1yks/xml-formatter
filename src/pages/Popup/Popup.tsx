@@ -1,18 +1,13 @@
-import { Rating } from 'react-simple-star-rating';
 import styles from './Popup.module.scss';
-import Star from '@/images/star.svg?react';
 import FilledStar from '@/images/filled-star.svg?react';
 import Arrow from '@/images/arrow.svg?react';
 import { useState } from 'react';
 import c from 'clsx';
-import { Title } from '@/components';
+import { Rating, Title } from '@/components';
+import { openFormatterTab } from '@/utils/openFormatterTab';
 
 export function Popup() {
     const [starsVisible, setStarsVisible] = useState(false);
-
-    function openFormatterTab() {
-        chrome.tabs.create({ url: chrome.runtime.getURL('../index.html') + '?formatter=1' });
-    }
 
     return (
         <div className={styles.popup}>
@@ -30,18 +25,7 @@ export function Popup() {
                     <>
                         <div className="divider" />
                         <div className={styles.rating}>
-                            <Rating
-                                allowFraction
-                                fillIcon={<FilledStar className={styles.starIcon} />}
-                                emptyIcon={<Star fill="#ccc" className={styles.starIcon} />}
-                                onClick={(value) => {
-                                    if (value > 3) {
-                                        chrome.tabs.create({ url: import.meta.env.VITE_EXTENSION_URL });
-                                    } else {
-                                        chrome.tabs.create({ url: import.meta.env.VITE_SURVEY_URL });
-                                    }
-                                }}
-                            />
+                            <Rating allowFraction defaultIconClassName={styles.starIcon} />
                         </div>
                     </>
                 )}

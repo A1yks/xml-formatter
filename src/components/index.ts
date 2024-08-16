@@ -6,3 +6,4 @@ export * from './ThemeSwitch';
 export * from './Button';
 export * from './Alert';
 export * from './RateMessage';
+export * from './Rating';

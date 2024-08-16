@@ -32,6 +32,8 @@ html {
     --code-tag-color: #2e2e46;
     --code-text-color: #1d8fcf;
     --code-number-color: #0ab444;
+    --star-fill-color: rgba(70, 67, 94, 1);
+    --close-icon-color: rgba(255, 255, 255, 0.5);
 }
 
 html.dark-theme {
@@ -57,6 +59,8 @@ html.dark-theme {
     --code-tag-color: #fff;
     --code-text-color: #53b1e5;
     --code-number-color: #38e473;
+    --star-fill-color: rgba(70, 67, 94, 0.2);
+    --close-icon-color: rgba(32, 30, 46, 0.5);
 }
 
 body {

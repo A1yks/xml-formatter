@@ -79,9 +79,5 @@ html:global(.dark-theme) {
     position: absolute;
     width: auto;
     bottom: 100px;
-    right: -20px;
-
-    @media screen and (max-width: 1600px) {
-        right: 40px;
-    }
+    right: 40px;
 }

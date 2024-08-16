@@ -17,6 +17,7 @@ export function Formatter() {
         isInParsedMode,
         loading,
         isRateMessageOpened,
+        isEmptyXml,
         openExtensionPage,
         closeAlert,
         clearError,
@@ -47,13 +48,13 @@ export function Formatter() {
                     <Editor
                         code={displayedCode}
                         onChange={isInParsedMode ? undefined : handleChange}
-                        error={getErrorText(error)}
+                        error={isEmptyXml ? undefined : getErrorText(error)}
                         readonly={isInParsedMode}
                         showCopyButton={isInParsedMode}
                         onErrorClose={clearError}
                         highlightDisabled={!isInParsedMode}
                     />
-                    {loading && <Loading className={styles.loading} />}
+                    {(loading || isEmptyXml) && <Loading className={styles.loading} text={isEmptyXml ? 'Paste Your XML Code' : undefined} />}
                 </div>
                 <RateMessage opened={isRateMessageOpened} onRateClick={openExtensionPage} onClose={closeAlert} className={styles.rateMessage} />
             </div>

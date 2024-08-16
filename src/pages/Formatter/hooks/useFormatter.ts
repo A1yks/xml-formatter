@@ -14,6 +14,7 @@ export function useFormatter() {
     const [parsedCount, setParsedCount] = useLocalStorage('parsedCount', 0);
     const [userRated, setUserRated] = useLocalStorage('userRated', false);
     const [isRateMessageOpened, setIsRateMessageOpened] = useState(!userRated);
+    const [isEmptyXml, setIsEmptyXml] = useState(false);
     const displayedCode = isInParsedMode ? formattedCode : sourceCode;
     const loading = isLoading || isPending;
     const sourceCodeChangedRef = useRef(true);
@@ -26,6 +27,7 @@ export function useFormatter() {
                 if (result.error) {
                     setError(result.error);
                     setIsInParsedMode(false);
+                    setIsEmptyXml(result.error.msg === 'Start tag expected.');
                 }
 
                 if (result.code) {
@@ -49,7 +51,10 @@ export function useFormatter() {
         };
     }, [xmlWorker]);
 
-    const clearError = useCallback(() => setError(null), []);
+    const clearError = useCallback(() => {
+        setError(null);
+        setIsEmptyXml(false);
+    }, []);
 
     function showAlert() {
         if (userRated) return;
@@ -69,7 +74,7 @@ export function useFormatter() {
     }
 
     function openExtensionPage() {
-        chrome.tabs.create({ url: import.meta.env.VITE_EXTENSION_URL });
+        console.log('CLICK');
         setUserRated(true);
         setIsRateMessageOpened(false);
     }
@@ -102,6 +107,7 @@ export function useFormatter() {
         isInParsedMode,
         loading,
         isRateMessageOpened,
+        isEmptyXml,
         clearError,
         closeAlert,
         openExtensionPage,

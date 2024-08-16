@@ -4,14 +4,15 @@ import c from 'clsx';
 
 export type LoadingProps = {
     className?: string;
+    text?: string;
 };
 
-export function Loading({ className }: LoadingProps) {
+export function Loading({ className, text = 'Systematization is taking place...' }: LoadingProps) {
     return (
         <div className={c(styles.loading, className)}>
             <div className={styles.content}>
                 <Code />
-                <div>Systematization is taking place...</div>
+                <div>{text}</div>
             </div>
         </div>
     );

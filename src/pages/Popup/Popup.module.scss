@@ -4,6 +4,10 @@
     display: flex;
     flex-direction: column;
     width: 217px;
+
+    .starIcon {
+        fill: rgba(36, 36, 46, 0.2);
+    }
 }
 
 .link,
@@ -38,9 +42,4 @@
 .rating {
     display: flex;
     justify-content: center;
-}
-
-.starIcon {
-    width: 24px;
-    height: 24px;
 }
